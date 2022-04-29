@@ -1,12 +1,25 @@
 {
   "name": "frontendandbackend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kriperi/frontendandbackend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kriperi/frontendandbackend/issues"
+  },
+  "homepage": "https://github.com/kriperi/frontendandbackend#readme",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.6.2"
+  }
 }
