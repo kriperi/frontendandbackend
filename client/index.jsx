@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { fetchJSON } from "./http";
+import { useLoader } from "./useLoader";
 
 function LoginLinks() {
   return (
@@ -15,42 +17,15 @@ function LoginLinks() {
   );
 }
 
-async function fetchJSON(url) {
-  const res = await fetch(url);
-  return await res.json();
-}
-
-function useLoader(loadingFn) {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
-  const [data, setData] = useState();
-  useEffect(() => {
-    async function check() {
-      setLoading(true);
-      try {
-        setData(await loadingFn());
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    check();
-  }, []);
-
-  return { loading, error, data };
-}
-
 function FrontPage() {
   const { loading, error, data } = useLoader(
     async () => await fetchJSON("/api/login")
   );
-
   const user = data;
+
   if (loading) {
     return <div>Loading...</div>;
   }
-
   if (error) {
     return (
       <div style={{ border: "1px solid red", background: "pink" }}>
