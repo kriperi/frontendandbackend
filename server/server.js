@@ -5,7 +5,7 @@ const app = express();
 
 app.get("/api/login", (req, res) => {
   res.json({
-    username: "admin",
+    userName: "admin",
     fullName: "Noen Andre Persson",
   });
 });
