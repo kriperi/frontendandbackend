@@ -9,7 +9,7 @@ app.get("/api/login", (req, res) => {
       const { username, fullName } = req.user;
       return res.json({ username, fullName });
     } else {
-      res.sendStatus(401);
+      res.sendStatus(204);
     }
   }
   setTimeout(respond, 400);
